@@ -14,6 +14,8 @@ var imagePlayer=[];
 
 var count = 0;
 
+var isCharChosen= false;
+
 var images= ["./assets/images/0.jpg", "./assets/images/1.jpg", "./assets/images/2.jpg", "./assets/images/3.jpg"]
 
 
@@ -96,7 +98,8 @@ targetRand();
     // Using the .attr("health") allows us to grab the value out of the "health" attribute.
     // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
     
-
+    if (!isCharChosen){
+      isCharChosen=true;
     var identityValue = ($(this).attr("identity"));
     // identityValue = parseInt(identityValue);
     // alert(name[identityValue]);
@@ -152,11 +155,11 @@ targetRand();
   //       attribute(healthPoints);
      
   //     }
- 
+  }
   });
 
 
-  $(".enemas").on("click", function() {
+  $(document).on("click", ".enemas", function() {
       var identityValue = ($(this).attr("identity"));
         
 for (var i=0; i<imagePlayer.length; i++){
