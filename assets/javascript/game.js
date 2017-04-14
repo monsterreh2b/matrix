@@ -7,9 +7,39 @@ var targetNumber = 0;
   // We begin by expanding our array to include four options.
   // var name = ["Neo", "Trinity", "Morpheus", "Agent Smith"];
   var identityNum = [0,1,2,3];
-  var healthPoints = [12,8,3,2,9,11,6,1,7,10,5,4];
-  var attackPower = [3,5,8,4,9,7,1,10,12,2,6,11];
-  var counterAttackPower = [2,9,12,8,3,1,7,6,4,10,11,5];
+   var healthPoints = [12,8,3,2,9,11,6,1,7,10,5,4];
+   var attackPower = [3,5,8,4,9,7,1,10,12,2,6,11];
+   var counterAttackPower = [2,9,12,8,3,1,7,6,4,10,11,5];
+
+ // var neo={
+ //    name : "Neo", 
+ //    healthPoints : 12,
+ //    attackPower : 3,
+ //    counterAttackPower: 2
+ //  };
+
+ // var trinity={
+ //    name : "Trinity", 
+ //    healthPoints : 8,
+ //    attackPower : 5,
+ //    counterAttackPower: 9
+ //  };
+
+ //  var morpheus={
+ //    name : "Morpheus",
+ //    healthPoints : 3,
+ //    attackPower : 8,
+ //    counterAttackPower: 12
+ //  };
+
+ // var smith={
+ //    name : "Smith",
+ //    healthPoints : 2,
+ //    attackPower : 4,
+ //    counterAttackPower: 8
+ //  };
+
+
 var imagePlayer=[];
 
 var count = 0;
@@ -17,7 +47,7 @@ var count = 0;
 var isCharChosen= false;
 
 var images= ["./assets/images/0.jpg", "./assets/images/1.jpg", "./assets/images/2.jpg", "./assets/images/3.jpg"]
-
+var name= ["Neo","Trinity", "Morpheus", "Agent Smith"];
 
 function targetRand(){ // between 19 - 120.
   targetNumber = Math.floor(Math.random() * 102) + 19; //(max - min + 1)+ min;
@@ -85,6 +115,8 @@ targetRand();
     imagePlayer[i].attr("health", healthPoints[i]);
     imagePlayer[i].attr("attack", attackPower[i]);
     imagePlayer[i].attr("counter", counterAttackPower[i]);
+
+
 
     // Lastly, each player image (with all it classes and attributes) will get added to the page.
     $("#cast").append(imagePlayer[i]);
@@ -165,6 +197,9 @@ targetRand();
 for (var i=0; i<imagePlayer.length; i++){
         if (identityValue === imagePlayer[i].attr("identity")){
           imagePlayer[i].addClass("opponent");
+          var attack = '<button>Attack</button><br>';
+         // attack.attr('id',fight);
+          $("#opponent").prepend(attack);
           $("#opponent").append(imagePlayer[i]);
           
           
